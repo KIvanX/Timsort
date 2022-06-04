@@ -25,7 +25,12 @@ def Tim_sort(array):
     def merge(a, b):
         new, i, j = [], 0, 0
         while i < len(a) and j < len(b):
-            new, i, j = (new + [a[i]], i + 1, j) if a[i] <= b[j] else (new + [b[j]], i, j + 1)
+            if a[i] <= b[j]:
+                new.append(a[i])
+                i += 1
+            else:
+                new.append(b[j])
+                j += 1
         return new + a[i:] + b[j:]
 
     def balansing(stack):
